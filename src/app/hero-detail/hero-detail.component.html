@@ -1,0 +1,20 @@
+
+<!-- Nesta página, você dará o primeiro passo nessa direção movendo os detalhes 
+do herói para um separado e reutilizável HeroDetailComponent.
+    O HeroesComponentapresentará apenas a lista de heróis.
+O HeroDetailComponentapresentará os detalhes de um herói selecionado. -->
+
+<div *ngIf="hero">
+
+    <h2>{{hero.name}} Details</h2>
+    
+    <div><span>id: </span>{{hero.id}}</div>
+
+    <div>
+        <label for="hero-name">Hero name: </label>
+        <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    </div>
+
+</div>
+
+

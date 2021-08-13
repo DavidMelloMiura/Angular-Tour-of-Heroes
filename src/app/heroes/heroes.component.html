@@ -1,0 +1,95 @@
+<!-- F<h2>{{hero}}</h2> virou hero.name - Assim vc esta selecionando a propriedade nome do objeto hero
+Se quiser que apresente o id deve fazer assim hero.id-->
+
+<!-- <h2>{{hero.name | uppercase}} Details</h2> -->
+<!-- Essa barra | - Pipes são uma boa maneira de formatar
+strings, valores monetários, datas e outros dados de exibição.
+O Angular é fornecido com vários tubos integrados e você pode criar o seu próprio. -->
+
+<!-- <div><span>id:</span>{{hero.id}}</div> -->
+<!-- <div><span>name: </span>{{hero.name}}</div> -->
+
+
+
+<!-- ========== SEGUNDA MUDANÇA ========== -->
+
+<!-- <div>
+    <input type="text" id="name" placeholder="name" [(ngModel)]="hero.name">
+</div> -->
+
+    <!-- Para poder usar ngModel vc deve importar no app.module e declarar no imports
+        [(ngModel)] é a sintaxe de ligação de dados bidirecional do Angular.
+
+Aqui, ele vincula a hero.namepropriedade à caixa de texto HTML para que os dados possam fluir em
+ambas as direções: da hero.namepropriedade para a caixa de texto e da caixa de texto de volta
+ para o hero.name. -->
+
+
+ <!-- ========== TERCEIRA MUDANÇA ========== -->
+
+ <h2>My Heroes</h2>
+ <ul class="heroes">
+     <!-- ngFor="let cria var hero aqui, of(de) heroes variavel do heroes.component.ts" -->
+     <li *ngFor="let hero of heroes"
+     [class.selected]="hero === selectedHero"
+     (click)="onSelect(hero)">
+         <span class="badge">{{hero.id}}</span> {{hero.name}} <!-- esse hero vem do let hero -->
+     </li>
+ </ul>
+
+<!-- O *ngFor é de Angular repetidor directiva.
+Ele repete o elemento do host para cada elemento em uma lista.
+    
+A sintaxe neste exemplo é a seguinte:
+    <li> é o elemento hospedeiro.
+    heroescontém a lista de heróis fictícios da HeroesComponentclasse,
+    a lista de heróis fictícios-->
+
+
+
+
+
+
+
+<!-- Quando inicio o codigo quebra pois o selectedHero.name esta vazio, pois não há nenhum item selecionado, ou seja esta undefined(indefinido) 
+
+    Pode corrigir OCULTANDO detalhes vazio com *ngIf   
+O componente deve exibir apenas os detalhes do herói selecionado, se selectedHeroexistir.
+Envolva o HTML de detalhes do herói em a <div>. Adicione a diretiva do Angular ao e defina-o como .*ngIf<div>selectedHero-->
+
+
+
+
+
+
+<!-- Essa parte ABAIXO foi transferida para o hero-detail.component.html
+Nesta página, você dará o primeiro passo nessa direção movendo os detalhes do herói
+para um separado e reutilizável HeroDetailComponent.
+
+O HeroesComponentapresentará apenas a lista de heróis.
+O HeroDetailComponentapresentará os detalhes de um herói selecionado.-->
+
+<!-- <div *ngIf="selectedHero">
+
+    <h2>{{selectedHero.name}} Details</h2>
+    
+    <div><span>id: </span>{{selectedHero.id}}</div>
+
+    <div>
+        <label for="hero-name">Hero name: </label>
+        <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+    </div>
+
+</div> -->
+
+
+
+
+<!-- importando o componente  hero-detail -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+<!-- [hero]="selectedHero"é uma vinculação de propriedade Angular .
+
+É uma uma forma de ligação a partir dos dados selectedHeropropriedade do HeroesComponentpara a heropropriedade do elemento de destino, que mapeia para a heropropriedade do HeroDetailComponent.
+
+Agora, quando o usuário clica em um herói da lista, as selectedHeromudanças. Quando as selectedHeromudanças, a vinculação da propriedade é atualizada hero e HeroDetailComponentexibe o novo herói. -->
