@@ -1,6 +1,12 @@
-{{title}}
+<h1>{{title}}</h1>
 
-<app-heroes></app-heroes>
+<!-- <app-heroes></app-heroes> -->
+<nav>
+    <a routerLink="/heroes">Heroes</a>
+</nav>
+
 <router-outlet></router-outlet>
+<app-messages></app-messages>
+<!-- O informa ao roteador onde exibir as visualizações roteadas.<router-outlet> -->
 
 
