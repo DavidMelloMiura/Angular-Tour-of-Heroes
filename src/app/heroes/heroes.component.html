@@ -27,15 +27,18 @@ ambas as direções: da hero.namepropriedade para a caixa de texto e da caixa de
 
  <!-- ========== TERCEIRA MUDANÇA ========== -->
 
+ <!--
+
  <h2>My Heroes</h2>
  <ul class="heroes">
-     <!-- ngFor="let cria var hero aqui, of(de) heroes variavel do heroes.component.ts" -->
+     
      <li *ngFor="let hero of heroes"
      [class.selected]="hero === selectedHero"
      (click)="onSelect(hero)">
-         <span class="badge">{{hero.id}}</span> {{hero.name}} <!-- esse hero vem do let hero -->
+         <span class="badge">{{hero.id}}</span> {{hero.name}} 
      </li>
  </ul>
+-->
 
 <!-- O *ngFor é de Angular repetidor directiva.
 Ele repete o elemento do host para cada elemento em uma lista.
@@ -86,10 +89,24 @@ O HeroDetailComponentapresentará os detalhes de um herói selecionado.-->
 
 
 <!-- importando o componente  hero-detail -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
 
 <!-- [hero]="selectedHero"é uma vinculação de propriedade Angular .
 
 É uma uma forma de ligação a partir dos dados selectedHeropropriedade do HeroesComponentpara a heropropriedade do elemento de destino, que mapeia para a heropropriedade do HeroDetailComponent.
 
 Agora, quando o usuário clica em um herói da lista, as selectedHeromudanças. Quando as selectedHeromudanças, a vinculação da propriedade é atualizada hero e HeroDetailComponentexibe o novo herói. -->
+
+
+<!-- ========== QUARTA MUDANÇA ========== -->
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <!-- ngFor="let cria var hero aqui, of(de) heroes variavel do heroes.component.ts" -->
+    <li *ngFor="let hero of heroes">
+        <!-- [class.selected]="hero === selectedHero"(click)="onSelect(hero)" Retirado de dentro do li ngFor -->
+        <a routerLink="/detail/{{hero.id}}">
+        <span class="badge">{{hero.id}}</span> {{hero.name}} <!-- esse hero vem do let hero -->
+        </a>
+    </li>
+</ul>

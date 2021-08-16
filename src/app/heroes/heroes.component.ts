@@ -74,14 +74,14 @@ Esse de cima é igual a esse de baixo
 
 
 /*Metodo disparado pelo (click) na lista que será criada pelo ngFor*/
-  onSelect(hero: Hero): void { /*Se não colocar o tipo aparece o erro com mouse em cima que precisa ter tipo */
-    this.selectedHero = hero;
-    this.MessageService.add('HeroesComponent: Selected hero id=${hero.id}');
+  /* onSelect(hero: Hero): void { */ /*Se não colocar o tipo aparece o erro com mouse em cima que precisa ter tipo */
+    /* this.selectedHero = hero;
+    this.MessageService.add('HeroesComponent: Selected hero id=${hero.id}'); */
     
       /* selectedHero recebe hero de cima (hero: Hero) este recebe */
       /* void significa que esse metodo não vai retornar valor
       só vai atribuir o valor na var selectedHero la em cima */
-  }
+  /* } */
 
   ngOnInit(): void {
     this.getHeroes(); /* Carrega herois logo no inicio */
